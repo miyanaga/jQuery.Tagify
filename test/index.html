@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery My Tagify</title>
+        <link href="jq/jquery-ui-1.9.0.no-theme.min.css" rel="stylesheet">
+        <script src="jq/jquery-1.8.2.min.js"></script>
+        <script src="jq/jquery-ui-1.9.0.core-widget.min.js"></script>
+        <link rel="stylesheet" href="../tagify-style.css">
+        <script src="../jquery.tagify.js"></script>
+    </head>
+    <body>
+        <h1>Default</h1>
+        <form id="default">
+            <textarea>tag1,teg2</textarea>
+        </form>
+
+        <h1>Custom Remove Button</h1>
+        <form id="remove-button">
+            <textarea>tag1,teg2</textarea>
+        </form>
+
+        <h1>Serialize Immediately</h1>
+        <form id="immediately">
+            <textarea>tag1,tag2</textarea>
+        </form>
+
+        <h1>Callback</h1>
+        <form id="callbacks">
+            <textarea>tag1,tag2</textarea>
+            <p>Current: <span id="current"></span></p>
+            <p>Copied: <span id="copied"></span></p>
+        </form>
+
+        <script>
+            jQuery(function($) {
+                $('#default textarea').tagify();
+
+                $('#remove-button textarea').tagify({
+                    removeButton: 'close',
+                });
+
+                $('#immediately textarea').tagify({
+                    serializeImmediately: true,
+                });
+
+                $('#callbacks textarea').tagify({
+                    onCreate: function() {
+                        var $a = $('<a href="#" id="copy">copy</a>').click(function() {
+                            var value = $('#callbacks textarea').val();
+                            $('#callbacks #copied').text(value);
+                            return false;
+                        });
+                        this.tagInput.after($a);
+                    },
+                    onChange: function(newValue) {
+                        $('#callbacks #current').text(newValue);
+                    }
+                })
+            });
+        </script>
+    </body>
+</html>

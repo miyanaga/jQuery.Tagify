@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--CloseButton-->
+<tr>
+	<td>assertText</td>
+	<td>//form[@id='default']/div[@class='tagify-container']/span/a</td>
+	<td>x</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//form[@id='remove-button']/div[@class='tagify-container']//span/a</td>
+	<td>close</td>
+</tr>
+<!--SerializeImmediately-->
+<tr>
+	<td>type</td>
+	<td>//form[@id='immediately']//input[@type='text']</td>
+	<td>tag3</td>
+</tr>
+<tr>
+	<td>keyPress</td>
+	<td>//form[@id='immediately']//input[@type='text']</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>//form[@id='immediately']/textarea</td>
+	<td>tag1,tag2,tag3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='immediately']/div[@class='tagify-container']/span/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>//form[@id='immediately']/textarea</td>
+	<td>tag2,tag3</td>
+</tr>
+<!--Callbacks-->
+<tr>
+	<td>type</td>
+	<td>//form[@id='callbacks']//input[@type='text']</td>
+	<td>tag3</td>
+</tr>
+<tr>
+	<td>keyPress</td>
+	<td>//form[@id='callbacks']//input[@type='text']</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//form[@id='callbacks']//span[@id='current']</td>
+	<td>tag1,tag2,tag3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='callbacks']/div[@class='tagify-container']/span/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//form[@id='callbacks']//span[@id='current']</td>
+	<td>tag2,tag3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='callbacks']//a[@id='copy']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//form[@id='callbacks']//span[@id='copied']</td>
+	<td>tag2,tag3</td>
+</tr>
+</tbody></table>
+</body>
+</html>
