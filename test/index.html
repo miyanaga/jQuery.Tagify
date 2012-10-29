@@ -31,6 +31,12 @@
             <p>Copied: <span id="copied"></span></p>
         </form>
 
+        <h1>Pickup</h1>
+        <form id="pickup">
+            <textarea>tag1,tag2</textarea>
+            <p>Live: <span id="live"></span></p>
+        </form>
+
         <script>
             jQuery(function($) {
                 $('#default textarea').tagify();
@@ -55,7 +61,23 @@
                     onChange: function(newValue) {
                         $('#callbacks #current').text(newValue);
                     }
-                })
+                });
+
+                $('#pickup textarea').tagify({
+                    onCreate: function() {
+                        var self = this;
+                        var $a = $('<a href="#" id="picker">pickup</a>').click(function() {
+                            var tag = prompt('Enter a new tag');
+                            if ( tag ) {
+                                self.add(tag);
+                            }
+                        });
+                        self.tagInput.after($a);
+                    },
+                    onChange: function(newValue) {
+                        $('#pickup #live').text(newValue);
+                    }
+                });
             });
         </script>
     </body>
